@@ -64,8 +64,12 @@ const Header = ({heading}) => {
                     </button>
 
                     {/* Add dropdown items here */}
-                    {/* <div className="hidden group-hover:block absolute right-0 pt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100">
-                    </div> */}
+                    <div className="hidden group-hover:block absolute right-0 pt-2">
+                    <div className=' bg-white text-sm shadow-lg border border-gray-100 rounded-lg w-44'>
+                    <p className='p-2 hover:bg-slate-100'>Setting</p>
+                    <p className='p-2 hover:bg-slate-100'>Logout</p>
+                    </div>
+                    </div>
                 </div>
             </div>
 
