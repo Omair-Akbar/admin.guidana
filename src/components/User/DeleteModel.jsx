@@ -1,10 +1,18 @@
 import { RxCross2 } from "react-icons/rx";
+import { useLocation } from "react-router-dom";
 
 export function Popup({ title, message, onConfirm, onCancel, isOpen }) {
-    if (!isOpen) return null
+    const location = useLocation(); 
+    const isUsersRoute = location.pathname === "/users";
+
+    if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 h-screen w-screen">
+        <div
+            className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 h-[100vh] w-screen ${
+                isUsersRoute ? "-top-4" : ""
+            }`}
+        >
             <div className="bg-white rounded-lg p-6 max-w-xl w-full mx-4">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="text-lg font-semibold text-center w-full">{title}</h3>
@@ -23,5 +31,5 @@ export function Popup({ title, message, onConfirm, onCancel, isOpen }) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

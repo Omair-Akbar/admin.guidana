@@ -11,7 +11,7 @@ import { MdManageAccounts } from "react-icons/md";
 import logo from "../../assets/logo.svg";
 
 const navItems = [
-    { icon: LuLayoutDashboard, path: '/', label: 'Dashboard' },
+    { icon: LuLayoutDashboard, path: '/dashboard', label: 'Dashboard' },
     { icon: MdManageAccounts, path: '/users', label: 'User Management' },
     // { icon: RiCustomerService2Line, path: '/support', label: 'Support' },
     // { icon: RiSettings4Line, path: '/settings', label: 'Settings' },
@@ -47,7 +47,7 @@ export default function Navbar() {
                                 }`}
                         >
                             <item.icon className="w-5 h-5 md:w-6 md:h-6" />
-                            <span className="absolute left-full ml-4 px-2 py-1 bg-slate-900 text-xs rounded-md opacity-0 group-hover:opacity-100 whitespace-nowrap">
+                            <span className="absolute left-full ml-4 px-2 py-1 bg-slate-900 text-xs rounded-md hidden group-hover:block whitespace-nowrap">
                                 {item.label}
                             </span>
                         </a>

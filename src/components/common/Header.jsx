@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 const userData = {
-    name: "Jhon Doe",
+    name: "Admin",
     profilePicture: 'https://www.portotheme.com/wordpress/porto/classic-one-page/wp-content/uploads/sites/85/2016/06/team-1-640x640.jpg',
 }
 
