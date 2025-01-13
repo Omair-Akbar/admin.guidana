@@ -19,20 +19,20 @@ const ActionProfile = ({ user }) => {
 
   const handleDeleteConfirm = () => {
     // Your logic to delete the account
-    setDeletePopup({ isOpen: false, userId: null });
-    setSuccessPopup({
-      isOpen: true,
-      message: 'Account has been successfully deleted'
-    });
+    // setDeletePopup({ isOpen: false, userId: null });
+    // setSuccessPopup({
+    //   isOpen: true,
+    //   message: 'Account has been successfully deleted'
+    // });
   };
 
   const handleDeactivateConfirm = () => {
     // Your logic to deactivate the account
-    setDeactivatePopup({ isOpen: false, userId: null });
-    setSuccessPopup({
-      isOpen: true,
-      message: 'Account has been deactivated'
-    });
+    // setDeactivatePopup({ isOpen: false, userId: null });
+    // setSuccessPopup({
+    //   isOpen: true,
+    //   message: 'Account has been deactivated'
+    // });
   };
 
   if (!user) {
@@ -50,7 +50,7 @@ const ActionProfile = ({ user }) => {
           <div className="flex flex-col sm:flex-row items-center sm:items-start">
             <div className="absolute rounded-full border border-blue-400 p-1 mb-4 sm:mb-0 sm:mr-6">
               <img
-                src={user.avatar}
+                src={user.profilePicture || "https://static.vecteezy.com/system/resources/previews/001/840/618/original/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg"}
                 alt=""
                 className="w-40 h-40 sm:w-52 sm:h-52 rounded-full object-cover"
               />
@@ -58,19 +58,21 @@ const ActionProfile = ({ user }) => {
             <div className="mt-52 sm:mt-0 sm:ml-60 w-full flex flex-col items-start pb-4">
               <div className="space-y-4">
                 <h2 className="text-lg sm:text-2xl font-semibold text-gray-900">
-                  {user.name}
+                  {user.firstName} {user.lastName}
                 </h2>
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                   It is a long established fact that a reader will be distracted
                   by the readable content of a page when looking at its layout.
                 </p>
-              </div> 
+              </div>
               <div className="w-full flex flex-col gap-4 text-sm md:text-base pt-3">
                 {/* First Row */}
                 <div className="flex justify-between">
                   <div className="flex items-center gap-2">
                     <FaMars className="w-5 h-5 text-gray-600" />
-                    <span className="text-gray-900 font-medium">Male</span>
+                    <span className="text-gray-900 font-medium capitalize">
+                      {user.gender.charAt(0).toUpperCase() + user.gender.slice(1).toLowerCase() || "N/A"}
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <FaUser className="w-5 h-5 text-gray-600" />
@@ -82,7 +84,7 @@ const ActionProfile = ({ user }) => {
                 <div className="flex justify-between">
                   <div className="flex items-center gap-2">
                     <FaGlobeAmericas className="w-5 h-5 text-gray-600" />
-                    <span className="text-gray-900 font-medium">American</span>
+                    <span className="text-gray-900 font-medium">{user.country || "N/A"}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <FaUsers className="w-5 h-5 text-gray-600" />
@@ -94,11 +96,11 @@ const ActionProfile = ({ user }) => {
                 <div className="flex justify-between">
                   <div className="flex items-center gap-2">
                     <FaCross className="w-5 h-5 text-gray-600" />
-                    <span className="text-gray-900 font-medium">Christian</span>
+                    <span className="text-gray-900 font-medium">{user.religion || "N/A"}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <FaGem className="w-5 h-5 text-gray-600" />
-                    <span className="text-gray-900 font-medium">Single</span>
+                    <span className="text-gray-900 font-medium">{user.maritalStatus || "N/A"}</span>
                   </div>
                 </div>
               </div>
@@ -129,7 +131,7 @@ const ActionProfile = ({ user }) => {
       </div>
 
       {/* Delete Popup */}
-      <Popup
+      {/* <Popup
         isOpen={deletePopup.isOpen}
         title="Delete Account"
         message={
@@ -143,23 +145,23 @@ const ActionProfile = ({ user }) => {
         }
         onConfirm={handleDeleteConfirm}
         onCancel={() => setDeletePopup({ isOpen: false, userId: null })}
-      />
+      /> */}
 
       {/* Deactivate Popup */}
-      <Popup
+      {/* <Popup
         isOpen={deactivatePopup.isOpen}
         title={`${user.status === 'Active' ? 'Deactivate' : 'Activate'} Account`}
         message={`Are you sure you want to ${user.status === 'Active' ? 'deactivate' : 'activate'} this account?`}
         onConfirm={handleDeactivateConfirm}
         onCancel={() => setDeactivatePopup({ isOpen: false, userId: null })}
-      />
+      /> */}
 
       {/* Success Popup */}
-      <SuccessPopup
+      {/* <SuccessPopup
         isOpen={successPopup.isOpen}
         message={successPopup.message}
         onClose={() => setSuccessPopup({ isOpen: false, message: '' })}
-      />
+      /> */}
     </>
   );
 };
