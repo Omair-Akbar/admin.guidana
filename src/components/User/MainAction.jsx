@@ -40,10 +40,8 @@ const MainAction = () => {
       <Header heading="Manage Accounts" />
       {user ? (
         <ActionProfile user={user} />
-      ) : status === "loading" ? (
+      ) : status === "loading" && (
         <p className="mt-4 text-blue-600">Loading...</p>
-      ) : (
-        <p className="mt-4 text-red-600">{error || "User not found!"}</p>
       )}
     </div>
   );

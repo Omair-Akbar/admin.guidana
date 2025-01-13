@@ -19,9 +19,11 @@ export default function UserTable() {
 
     useEffect(() => {
 
-        console.log(page)
+        // console.log(page)
         dispatch(fetchUsers());
-    }, [page]);
+    }, []);
+// }, [page]);
+
 
     const handleSearch = (query) => {
         setSearchQuery(query);
